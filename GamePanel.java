@@ -59,26 +59,14 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-
-        if(keyH.upPressed == true){
-            player.playerY -= player.playerSpeed;
-        }
-        else if(keyH.downPressed == true){
-            player.playerY += player.playerSpeed;
-        }
-        else if(keyH.leftPressed == true){
-            player.playerX -= player.playerSpeed;
-        }
-        else if(keyH.rightPressed == true){
-            player.playerX += player.playerSpeed;
-        }
+    	player.playerMovement();
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
         g2.setColor(Color.white);
-        g2.fillRect(player.playerX, player.playerY, tileSize, tileSize);
+        g2.fillRect(player.x, player.y, tileSize, tileSize);
         g2.dispose();
     }
 }
